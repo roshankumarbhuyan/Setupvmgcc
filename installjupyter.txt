@@ -1,0 +1,30 @@
+go to VPC and firewall rules..
+open port8888 for all
+
+sudo apt-get update
+sudo apt-get install software-properties-common
+sudo apt-get install python-setuptools python-dev build-essential
+sudo apt-get install ipython
+sudo apt-get install python3-pip
+sudo pip3 install jupyter
+pip3 install --upgrade pip
+jupyter notebook --generate-config
+
+sudo nano ~/.jupyter/jupyter_notebook_config.py
+
+c = get_config()
+c.Notebook.ip = "*"
+
+c.NotebookApp.open_browser = False
+c.NotebookApp.port = 8888
+
+ctrl + o
+ctrl + x
+ tmux
+jupyter notebook password 
+
+sudo jupyter notebook --ip 0.0.0.0 --port 8888 --allow-root
+
+sudo pip3 install numpy scipy matplotlib ipython jupyter pandas sympy nose
+#if problems with pip
+sudo python3 -m pip uninstall pip && sudo apt install python3-pip --reinstall

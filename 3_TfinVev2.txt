@@ -1,0 +1,89 @@
+sudo apt-get install python3-pip
+
+pip install --upgrade pip
+pip --version
+
+##########if there is an error run
+# sudo python3 -m pip uninstall pip && sudo apt install python3-pip --reinstall
+
+sudo apt-get install python3-venv
+
+python3 -m venv Barkbabybark
+
+source Barkbabybark/bin/activate 
+
+###############upgrade pip inside the enviorement 
+
+pip3 install --upgrade pip
+pip3 --version
+
+pip install -U tensorflow-gpu
+python-dev
+python -c "import tensorflow as tf; print(tf.__version__)"
+
+
+git clone https://github.com/tensorflow/models
+
+
+pip install Cython
+
+pip install contextlib2
+
+pip install pillow
+
+pip install lxml
+
+pip install jupyter
+
+pip install matplotlib
+
+pip install protobuf
+
+pip install pandas
+
+
+
+
+
+Download 
+
+protoc
+
+# Unzip
+unzip protoc-3.3.0-linux-x86_64.zip -d protoc3
+
+# Move protoc to /usr/local/bin/
+sudo mv protoc/bin/* /usr/local/bin/
+
+# Move protoc3/include to /usr/local/include/
+sudo mv protoc/include/* /usr/local/include/
+
+Protobuf Compilation
+The Tensorflow Object Detection API uses Protobufs to configure model and training parameters. 
+Before the framework can be used, the Protobuf libraries must be compiled. 
+This should be done by running the following command from the tensorflow/models
+
+export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
+export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
+
+
+#From tensorflow/models/research/
+cd models/research/
+
+
+protoc object_detection/protos/*.proto --python_out=.
+
+
+python setup.py build
+
+python setup.py install
+
+
+jupyter notebook
+
+
+tensorboard --logdir='training'
+
+python model_main.py --logtostderr --train_dir=output_data/ --pipeline_config_path=training_data/ssd_inception_v2_cars.config
+
+python model_main.py --pipeline_config_path=training_data/ssd_inception_v2_cars.config --model_dir= output_data --num_train_steps=2000000 --alsologtostderr --sample_1_of_n_eval_examples=1

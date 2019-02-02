@@ -1,0 +1,63 @@
+$sudo apt-get update
+$sudo apt-get upgrade
+$sudo apt-get install autocutsel          # to act as a ftp interface
+$sudo apt-get install tightvncserver
+$sudo apt-get install ubuntu-gnome-desktop
+$sudo apt-get install gnome-shell
+$touch ~/.Xresources
+$vncserver # pass 8 char
+
+############you get an output like this#####################
+Creating default startup script /home/roshankumar999/.vnc/xstartup
+Starting applications specified in /home/roshankumar999/.vnc/xstartup
+Log file is /home/roshankumar999/.vnc/pytest4:1.log
+##################################################################
+
+select middle line and add  sudo vim like this
+
+$sudo vim /home/roshankumar999/.vnc/xstartup
+
+press i to go into insert mode
+clear everything replace by
+
+**XSTARTUP FILE**
+#!/bin/sh
+autocutsel -fork
+xrdb $HOME/.Xresources
+xsetroot -solid grey
+export XKL_XMODMAP_DISABLE=1
+export XDG_CURRENT_DESKTOP="GNOME-Flashback:Unity"
+export XDG_MENU_PREFIX="gnome-flashback-"
+unset DBUS_SESSION_BUS_ADDRESS
+gnome-session --session=gnome-flashback-metacity --disable-acceleration-check --debug &
+
+esc :wq (write quit)
+
+$vncserver -kill :1
+#start new server
+$vncserver -geometry 1024x640
+
+#Install VNC viewer on Windows. Linux already has a vnc cleint, MAc? IDK
+#install Gcloud SDK on your PC
+Follow This
+https://cloud.google.com/sdk/
+
+#connect
+ gcloud compute ssh #instanceName# --project #projectname# --zone europe-west1-b --ssh-flag "-L 5901:localhost:5901"
+ gcloud compute ssh torch --project tensorflow1-206610 --zone europe-west1-b --ssh-flag "-L 5901:localhost:5901"
+
+sudo apt-get install gnome-core
+sudo apt-get install gnome-panel
+$ sudo apt-get install gnome-themes-standard
+$ sudo apt-get install adwaita-icon-theme-full adwaita-icon-theme
+$ gsettings get org.gnome.metacity theme
+$ gsettings set org.gnome.metacity theme 'Adwaita'
+
+*GNOME DESKTOP INSTANCE SHELL COMMAND**
+$ sudo gnome-tweak-tool
+
+
+
+to change disp manager
+sudo dpkg-reconfigure gdm3
+
